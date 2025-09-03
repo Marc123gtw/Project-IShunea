@@ -1,19 +1,21 @@
 "use client";
 
-const CustomButton = () => {
-  return (
-    <button
-        disabled={false}
-        type={'button'}
-        className={'custom-btn'}
-        onClick={() =>{}}
+import { CustomButtonProps } from '@/types';
+
+const CustomButton = ({ title, containerStyLes, handleClick, btnType }: CustomButtonProps) => {
+    return (
+        <button
+            disabled={false}
+            type={btnType ||"button"}
+            className={`custom-btn ${containerStyLes}`
+        }
+            onClick={handleClick}
         >
-        <span className={'flex-1'}>
-        title
-        </span>
-    
-    </button>
-  )
+            <span className={`flex-1`}>
+                {title}
+            </span>
+        </button>
+    )
 }
 
-export default CustomButton
+export default CustomButton;
